@@ -1,0 +1,14 @@
+<h3>Ingrese el número de miembros total</h3>
+
+<p-spinner size="30" [(ngModel)]="numeroMiembros" [min]="1"></p-spinner>
+
+<h2>Ingrese el número de grupos o número de miembros por grupo:</h2>
+
+<h3>Número de grupos</h3>
+<p-spinner size="30" [(ngModel)]="grupos" (onChange)="actualizarMiembrosGrupo()" [min]="1" [max]="numeroMiembros"></p-spinner>
+
+<h3>Mínimo de miembros por grupo</h3>
+<p-spinner size="30" (onChange)="actualizarGrupos()" [(ngModel)]="miembrosPorGrupo" [min]="1" [max]="numeroMiembros"></p-spinner>
+<p *ngIf="remainder">Habrá {{remainder}} grupos de {{miembrosPorGrupo+1}}</p>
+
+<button pButton type="button" label="Calcular" (click)="" class="ui-button-raised ui-button-success"></button>
