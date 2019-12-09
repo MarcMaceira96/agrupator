@@ -1,3 +1,5 @@
+<span style="font-family:Courier">
+<body>          
 <div class="ui-g">
     <div class="ui-g-12 centrado">
         <h3>Minimo de miembros por grupo</h3>
@@ -5,12 +7,10 @@
     </div>
     <div class="ui-g-12 centrado">
         <h3>Número de miembros total</h3>
-        <input type="text" id="float-input" size="30" pInputText [(ngModel)]="nombre" #myInput/>
+        <input type="text" id="float-input" size="30" pInputText (keydown)="onKeydown($event)" [(ngModel)]="nombre" #myInput/>
         <button pButton type="button" icon="pi pi-fw pi-plus" (click)="addMiembro('myInput')" class="ui-button-raised ui-button-info"></button>
     </div> 
 </div>
-
-
 <hr>
 <div class="ui-g">
     <div class="ui-g centrado" ></div>
@@ -30,11 +30,11 @@
         </p-table>
     </div>
 </div>
-
 <hr>
-
 <div class="ui-g">
     <div class="ui-g-12 centrado">
         <button pButton type="button" label="Calcular" (click)="generarGrupos()"class="ui-button-raised ui-button-success"></button>
     </div>
 </div>
+</body>
+</span>

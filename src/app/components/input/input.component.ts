@@ -38,8 +38,14 @@ export class InputComponent implements OnInit {
     this.groupsKeys = Object.keys(this.generatedGroups);
     console.log(this.groupsKeys);
 
-    
+
     this.router.navigate(['/result'], {state: {data: this.generatedGroups}});
+  }
+
+  onKeydown(event) {
+    if(event.key === "Enter") {
+      this.addMiembro();
+    }
   }
 
 

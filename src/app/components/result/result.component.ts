@@ -21,4 +21,8 @@ export class ResultComponent implements OnInit {
     }
   }
 
+  retornar() {
+    this.router.navigate(['/input'], {state: {data: this.generatedGroups}});
+  }
+
 }
