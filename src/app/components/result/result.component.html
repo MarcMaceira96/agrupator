@@ -1,1 +1,25 @@
-<p>result works!</p>
+<span style="font-family:Courier">
+
+<h1>Agrupaciones:</h1>
+<div class="ui-g">
+    <div class="ui-g centrado" ></div>
+    <div class="ui-g-12 ui-md-8 centrado">
+        <div *ngFor="let grupo of groupsKeys">
+            <p-table [value]="generatedGroups[grupo]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>{{grupo}}</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-miembro>
+                    <tr>
+                        <td>{{miembro}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <br>
+        </div>
+    </div>
+</div>
+
+</span>

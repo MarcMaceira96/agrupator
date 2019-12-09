@@ -1,14 +1,40 @@
-<h3>Ingrese el número de miembros total</h3>
+<div class="ui-g">
+    <div class="ui-g-12 centrado">
+        <h3>Minimo de miembros por grupo</h3>
+        <p-spinner size="30" [(ngModel)]="miembrosPorGrupo" [min]="1" [max]="numeroMiembros"></p-spinner>
+    </div>
+    <div class="ui-g-12 centrado">
+        <h3>Número de miembros total</h3>
+        <input type="text" id="float-input" size="30" pInputText [(ngModel)]="nombre" #myInput/>
+        <button pButton type="button" icon="pi pi-fw pi-plus" (click)="addMiembro('myInput')" class="ui-button-raised ui-button-info"></button>
+    </div> 
+</div>
 
-<p-spinner size="30" [(ngModel)]="numeroMiembros" [min]="1"></p-spinner>
 
-<h2>Ingrese el número de grupos o número de miembros por grupo:</h2>
+<hr>
+<div class="ui-g">
+    <div class="ui-g centrado" ></div>
+    <div class="ui-g-12 ui-md-8 centrado p-grid p-justify-center">
+        <h3 class="first">Miembros</h3>
+        <p-table [value]="miembros">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-miembro>
+                <tr>
+                    <td>{{miembro}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
 
-<h3>Número de grupos</h3>
-<p-spinner size="30" [(ngModel)]="grupos" (onChange)="actualizarMiembrosGrupo()" [min]="1" [max]="numeroMiembros"></p-spinner>
+<hr>
 
-<h3>Mínimo de miembros por grupo</h3>
-<p-spinner size="30" (onChange)="actualizarGrupos()" [(ngModel)]="miembrosPorGrupo" [min]="1" [max]="numeroMiembros"></p-spinner>
-<p *ngIf="remainder">Habrá {{remainder}} grupos de {{miembrosPorGrupo+1}}</p>
-
-<button pButton type="button" label="Calcular" (click)="" class="ui-button-raised ui-button-success"></button>
+<div class="ui-g">
+    <div class="ui-g-12 centrado">
+        <button pButton type="button" label="Calcular" (click)="generarGrupos()"class="ui-button-raised ui-button-success"></button>
+    </div>
+</div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { GruposerviceService } from 'src/app/services/gruposervice.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-input',
@@ -7,29 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('myInput', {static: false}) myInput: ElementRef;
 
-  grupos: number;
+  constructor(private grupoService: GruposerviceService,
+              private router: Router) { }
+
   numeroMiembros: number;
   miembrosPorGrupo: number;
-  remainder: number;
-
+  miembros: string[] = [];
+  generatedGroups: any;
+  nombre: string;
+  groupsKeys:string[] = [];
 
   ngOnInit() {
   }
 
-  actualizarMiembrosGrupo() {
-    this.miembrosPorGrupo = Math.floor(this.numeroMiembros / this.grupos);
-    this.remainder = this.numeroMiembros % this.grupos;
+  addMiembro() {
+    if(this.nombre) {
+      this.miembros.push(this.nombre);
+      this.nombre = "";
+    } 
+    this.myInput.nativeElement.focus();
   }
 
-  actualizarGrupos() {
-    this.grupos = Math.floor(this.numeroMiembros / this.miembrosPorGrupo);
-    this.remainder = this.numeroMiembros % this.grupos;
-  }
+  generarGrupos() {
+    this.generatedGroups = this.grupoService.agrupar(this.miembros,this.miembrosPorGrupo);
+    console.log(this.generatedGroups);
+    this.groupsKeys = Object.keys(this.generatedGroups);
+    console.log(this.groupsKeys);
 
-  calcularGrupos() {
     
+    this.router.navigate(['/result'], {state: {data: this.generatedGroups}});
   }
+
 
 }
