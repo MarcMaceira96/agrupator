@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~primeicons/primeicons.css';
-@import '~primeng/resources/themes/nova-light/theme.css';
+@import '~primeng/resources/themes/nova-dark/theme.css';
 @import '~primeng/resources/primeng.min.css';
 
 .numero{
@@ -13,5 +13,20 @@
 
 .centrado{
     text-align: center;
-    
+}
+
+body {
+    background-image: linear-gradient(to right, #636870, #384252);
+    /*background-image: url("assets/fondo2.jpg")
+    background-color: grey;*/
+   }
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+}
+
+h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
 }

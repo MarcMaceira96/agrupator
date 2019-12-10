@@ -1,9 +1,7 @@
-<span style="font-family:Courier">
-<body>          
 <div class="ui-g">
     <div class="ui-g-12 centrado">
         <h3>Minimo de miembros por grupo</h3>
-        <p-spinner size="30" [(ngModel)]="miembrosPorGrupo" [min]="1" [max]="numeroMiembros"></p-spinner>
+        <p-spinner size="10" inputStyleClass="center" [(ngModel)]="miembrosPorGrupo" [min]="1" [max]="numeroMiembros"></p-spinner>
     </div>
     <div class="ui-g-12 centrado">
         <h3>Número de miembros total</h3>
@@ -11,30 +9,28 @@
         <button pButton type="button" icon="pi pi-fw pi-plus" (click)="addMiembro('myInput')" class="ui-button-raised ui-button-info"></button>
     </div> 
 </div>
-<hr>
-<div class="ui-g">
-    <div class="ui-g centrado" ></div>
-    <div class="ui-g-12 ui-md-8 centrado p-grid p-justify-center">
-        <h3 class="first">Miembros</h3>
-        <p-table [value]="miembros">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Nombre</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-miembro>
-                <tr>
-                    <td>{{miembro}}</td>
-                </tr>
-            </ng-template>
-        </p-table>
+
+<div class="p-grid p-justify-center">
+    <div class="ui-g-12 ui-md-6 ui-lg-4"  >
+        <div>
+            <h3 class="centrado">Miembros</h3>
+            <p-table class="centrado" [value]="miembros">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nombre</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-miembro>
+                    <tr>
+                        <td>{{miembro}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
     </div>
 </div>
-<hr>
 <div class="ui-g">
     <div class="ui-g-12 centrado">
         <button pButton type="button" label="Calcular" (click)="generarGrupos()"class="ui-button-raised ui-button-success"></button>
     </div>
 </div>
-</body>
-</span>

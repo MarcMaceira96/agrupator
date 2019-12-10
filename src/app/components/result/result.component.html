@@ -1,9 +1,8 @@
-<span style="font-family:Courier">
-
-<h1>Agrupaciones:</h1>
-<div class="ui-g">
-    <div class="ui-g centrado" ></div>
-    <div class="ui-g-12 ui-md-8 centrado">
+<div class="centrado">
+    <h3>Grupos</h3>
+</div>
+<div class="p-grid p-justify-center">
+    <div class="ui-g-12 ui-md-6 ui-lg-4 centrado">
         <div *ngFor="let grupo of groupsKeys">
             <p-table [value]="generatedGroups[grupo]">
                 <ng-template pTemplate="header">
@@ -18,11 +17,9 @@
                 </ng-template>
             </p-table>
             <br>
-        </div>
-        <button pButton label="Volver" type="button" icon="pi pi-arrow-circle-left" (click)="retornar()" class="ui-button-raised ui-button-info"></button>
+        </div>  
     </div>
 </div>
-
-
-</span>
-
+<div class="centrado" >
+    <button pButton label="Volver" type="button" icon="pi pi-arrow-circle-left" (click)="retornar()" class="ui-button-raised ui-button-info"></button>
+</div>
